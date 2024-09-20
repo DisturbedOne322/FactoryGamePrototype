@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec3ec12633082a34aaa66900a4eede9a, type: 2}
   _resourceColor: {r: 1, g: 0.045171876, b: 0.015686274, a: 1}
   _timeToProduce: 4
-  _timeToPick: 0.5
+  _timeToPick: 0.77

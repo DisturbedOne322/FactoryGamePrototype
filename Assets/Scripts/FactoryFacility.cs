@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(FactoryProgressDisplay))]
@@ -16,6 +15,7 @@ public class FactoryFacility : MonoBehaviour
 
     private bool _producing = false;
     private float _progress = 0;
+    private float _progressNormalized = 0;
 
     private string _statusMessage;
     private const string WORK_IN_PROGRESS_STATUS = "WORK IN PROGRESS...";
@@ -34,7 +34,7 @@ public class FactoryFacility : MonoBehaviour
 
     private void UpdateProgress()
     {
-        _factoryProgressDisplay.DisplayProgress(_progress);
+        _factoryProgressDisplay.DisplayProgress(_progressNormalized);
         _factoryProgressDisplay.DisplayStatus(_statusMessage);
     }
 
@@ -57,9 +57,7 @@ public class FactoryFacility : MonoBehaviour
         }
 
         for (int i = 0; i < requiredMatsSize; i++)
-        {
             _storeWarehouseFacility.RemoveFromSubstorage(_producedResource.RequiredResourceMaterials[i]);
-        }
 
         _statusMessage = WORK_IN_PROGRESS_STATUS;
         return true;
@@ -67,10 +65,11 @@ public class FactoryFacility : MonoBehaviour
 
     private void ProduceResource()
     {
-        _progress += Time.deltaTime / _producedResource.TimeToProduce;
+        _progress += Time.deltaTime;
+        _progressNormalized = _progress / _producedResource.TimeToProduce;
         if(_progress >= _producedResource.TimeToProduce)
         {
-            _progress = 0;
+            _progress = _progressNormalized = 0;
             _produceWarehouseFacility.AddToSubstorage(_producedResource);
             _producing = false;
         }

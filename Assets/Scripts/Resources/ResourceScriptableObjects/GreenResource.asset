@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GreenResource
   m_EditorClassIdentifier: 
   RequiredResourceMaterials: []
-  _resourceColor: {r: 0.23294076, g: 1, b: 0.015686274, a: 1}
-  _timeToProduce: 1
-  _timeToPick: 0.1
+  _resourceColor: {r: 0.015686274, g: 1, b: 0.3171686, a: 1}
+  _timeToProduce: 0.5
+  _timeToPick: 0.33

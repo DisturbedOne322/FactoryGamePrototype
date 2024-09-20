@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class WarehouseStorage : MonoBehaviour
 {
+    [SerializeField]
+    private WarehouseStorageType _storageType;
+    public WarehouseStorageType StorageType => _storageType;
+
     [SerializeField, Min(1)]
     private int _storeCapacity = 10;
-    public int _amountStored = 10;
+    private int _amountStored = 0;
 
     [SerializeField]
     private ResourceBase _resourceToStore;
@@ -21,6 +25,11 @@ public class WarehouseStorage : MonoBehaviour
     public bool HasSpace() => _amountStored < _storeCapacity;
     public bool HasItems() => _amountStored > 0;
 
+    private void Awake()
+    {
+        GetComponent<MeshRenderer>().material.color = _resourceToStore.ResourceColor;
+    }
+
     public void Add()
     {
         GameObject go = ResourceFactorySingleton.Instance.GetResourceGO(_resourceToStore);
@@ -29,21 +38,26 @@ public class WarehouseStorage : MonoBehaviour
         _amountStored++;
     }
 
-    public GameObject Retrieve()
+    public void Retrieve()
     {
         if (_storedGOsStack.Count == 0)
-            return null;
+            return;
 
         _amountStored--;
-        return RetrieveResourceBox(_resourceToStore);
+        RetrieveResourceBox(_resourceToStore);
     }
 
-    private GameObject RetrieveResourceBox(ResourceBase resource)
+    private void RetrieveResourceBox(ResourceBase resource)
     {
         GameObject result = _storedGOsStack.Pop();
         ResourceFactorySingleton.Instance.ReleaseResourceGO(resource, result);
-        return result;
     }
+}
+
+public enum WarehouseStorageType
+{
+    ResourceStore,
+    ProductionStore,
 }
 
 [Serializable]
