@@ -3,16 +3,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour, ICharacterInputProvider
 {
-    [SerializeField]
-    private InputActionReference _moveInputAction;
+    private PlayerInputActions _actions;
 
     private void Awake()
     {
-        _moveInputAction.action.Enable();
+        _actions = new PlayerInputActions();
+        _actions.Player.Enable();
     }
 
     public Vector2 GetMoveInput()
     {
-        return _moveInputAction.action.ReadValue<Vector2>();
+        return _actions.Player.Move.ReadValue<Vector2>();
     }
 }

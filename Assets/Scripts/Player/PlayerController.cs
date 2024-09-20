@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Min(1)]
     private float _moveSpeed;
+    [SerializeField, Min(1)]
+    private float _rotateSpeed;
 
     private Vector3 _moveDir;
 
@@ -25,12 +27,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var input = _inputProvider.GetMoveInput().normalized;
+        var input = _inputProvider.GetMoveInput();
         _moveDir = new Vector3(input.x, 0 ,input.y);
-
         if (!ValidInput())
             return;
-        transform.forward = _moveDir;
+        transform.forward = Vector3.Lerp(transform.forward, _rb.velocity, Time.deltaTime * _rotateSpeed);
     }
 
     private void FixedUpdate()

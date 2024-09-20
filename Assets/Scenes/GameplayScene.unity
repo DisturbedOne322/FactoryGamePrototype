@@ -863,7 +863,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 1
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -1578,9 +1578,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 5.26, z: -5.07}
-  m_XDamping: 0.1
+  m_XDamping: 0
   m_YDamping: 0
-  m_ZDamping: 0.1
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -1602,8 +1602,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
+  m_HorizontalDamping: 3.24
+  m_VerticalDamping: 6.71
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
@@ -2000,7 +2000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba002cbbc604124cb706c9dfaa09d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveInputAction: {fileID: -4947590780954359195, guid: 25923b3859df23041aa565d7f18d63a2, type: 3}
 --- !u!114 &2007938517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2015,6 +2014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 2007938518}
   _moveSpeed: 6
+  _rotateSpeed: 2
 --- !u!54 &2007938518
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2029,7 +2029,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 84
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2007938519
 MonoBehaviour:
