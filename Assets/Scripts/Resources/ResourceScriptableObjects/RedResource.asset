@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf07949a47fc77428850f5c0b6445c7, type: 3}
   m_Name: RedResource
   m_EditorClassIdentifier: 
-  _requiredResourceMaterials: []
+  RequiredResourceMaterials:
+  - {fileID: 11400000, guid: 845d34e0fdc36564fb9885c92bef07bf, type: 2}
+  - {fileID: 11400000, guid: ec3ec12633082a34aaa66900a4eede9a, type: 2}
   _resourceColor: {r: 1, g: 0.045171876, b: 0.015686274, a: 1}
   _timeToProduce: 4
   _timeToPick: 0.5

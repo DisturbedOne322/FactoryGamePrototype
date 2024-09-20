@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734b3067975c6a447ba1566a6d05d300, type: 3}
   m_Name: YellowResource
   m_EditorClassIdentifier: 
-  _requiredResourceMaterials: []
+  RequiredResourceMaterials:
+  - {fileID: 11400000, guid: 845d34e0fdc36564fb9885c92bef07bf, type: 2}
   _resourceColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _timeToProduce: 2
   _timeToPick: 0.3

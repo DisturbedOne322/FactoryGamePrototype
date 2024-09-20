@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class WarehouseFacility : MonoBehaviour
@@ -6,24 +5,10 @@ public class WarehouseFacility : MonoBehaviour
     [SerializeField]
     private WarehouseStorage[] _warehouseStorages;
 
-    private WarehouseStorage _cachedStorage;
-
-    public bool SubstorageHasSpace(ResourceBase resource)
-    {
-        _cachedStorage = FindAppropriateStorage(resource);
-        return _cachedStorage?.HasSpace() ?? false;
-    }
-    public void AddToSubstorage(ResourceBase resource) => _cachedStorage.Add(resource);
-
-    public bool SubstorageHasResource(ResourceBase resource)
-    {
-        _cachedStorage = FindAppropriateStorage(resource);
-        return _cachedStorage?.HasItems() ?? false;
-    }
-    public void RemoveFromSubstorage(ResourceBase resource)
-    {
-        FindAppropriateStorage(resource).Retrieve();
-    }
+    public bool SubstorageHasSpace(ResourceBase resource) => FindAppropriateStorage(resource)?.HasSpace() ?? false;
+    public void AddToSubstorage(ResourceBase resource) => FindAppropriateStorage(resource).Add();
+    public bool SubstorageHasResource(ResourceBase resource) => FindAppropriateStorage(resource)?.HasItems() ?? false;
+    public void RemoveFromSubstorage(ResourceBase resource) => FindAppropriateStorage(resource).Retrieve();   
 
     private WarehouseStorage FindAppropriateStorage(ResourceBase resource)
     {
