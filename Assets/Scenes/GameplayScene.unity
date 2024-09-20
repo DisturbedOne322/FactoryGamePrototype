@@ -2145,7 +2145,7 @@ PrefabInstance:
     - target: {fileID: 1943720174, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 59c66ee892c509a418e2275704739745, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1011742260442234621, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
       propertyPath: _storeCapacity
       value: 3
@@ -2157,11 +2157,11 @@ PrefabInstance:
     - target: {fileID: 1011742260442234622, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 59c66ee892c509a418e2275704739745, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1011742260848451476, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 59c66ee892c509a418e2275704739745, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1011742261142711663, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2290,7 +2290,7 @@ PrefabInstance:
     - target: {fileID: 6559871343373478376, guid: d06e5949e03903445a22fa9c69356623, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 59c66ee892c509a418e2275704739745, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6559871343670352659, guid: d06e5949e03903445a22fa9c69356623, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2306,7 +2306,7 @@ PrefabInstance:
     - target: {fileID: 6559871344043739266, guid: d06e5949e03903445a22fa9c69356623, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 59c66ee892c509a418e2275704739745, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7287832645618845213, guid: d06e5949e03903445a22fa9c69356623, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2320,6 +2320,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1768732597}
     m_Modifications:
+    - target: {fileID: 330299552, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 330299555, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
       propertyPath: _storeCapacity
       value: 50

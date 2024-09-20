@@ -179,7 +179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storageType: 1
   _storeCapacity: 50
-  _amountStored: 0
   _resourceToStore: {fileID: 11400000, guid: 845d34e0fdc36564fb9885c92bef07bf, type: 2}
   _resourcesDisplay:
     Rows: 5
