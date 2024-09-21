@@ -20,12 +20,14 @@ public class PlayerItemPickup : MonoBehaviour
     {
         _cachedStorage = null;
         _interacting = false;
+        ResetTimers();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         _cachedStorage = other.GetComponent<WarehouseStorage>();
         _inventory.TryInitialize(_cachedStorage.StoredResourceType);
+        ResetTimers();
     }
 
     private void Update()
@@ -44,11 +46,16 @@ public class PlayerItemPickup : MonoBehaviour
         }
 
         if (!_interacting)
+        {
+            ResetTimers();
             return;
+        }
 
         _pickupTimer += Time.deltaTime;
         _pickupTimeNormalized = _pickupTimer / _cachedStorage.StoredResourceType.TimeToPick;
     }
+
+    private void ResetTimers() => _pickupTimer = _pickupTimeNormalized = 0;
 
     private bool TryPickUpItem()
     {
