@@ -47,9 +47,10 @@ public class FactoryFacility : MonoBehaviour
         }
 
         int requiredMatsSize = _producedResource.RequiredResourceMaterials.Count;
+        
         for (int i = 0; i < requiredMatsSize; i++)
         {
-            if (!_storeWarehouseFacility.SubstorageHasResource(_producedResource.RequiredResourceMaterials[i]))
+            if (!_storeWarehouseFacility.SubstorageHasResources(_producedResource.RequiredResourceMaterials[i].Resource, _producedResource.RequiredResourceMaterials[i].Amount))
             {
                 _statusMessage = NO_RESOURCE_STATUS;
                 return false;
@@ -57,7 +58,7 @@ public class FactoryFacility : MonoBehaviour
         }
 
         for (int i = 0; i < requiredMatsSize; i++)
-            _storeWarehouseFacility.RemoveFromSubstorage(_producedResource.RequiredResourceMaterials[i]);
+            _storeWarehouseFacility.RetrieveFromSubstorage(_producedResource.RequiredResourceMaterials[i].Resource, _producedResource.RequiredResourceMaterials[i].Amount);
 
         _statusMessage = WORK_IN_PROGRESS_STATUS;
         return true;

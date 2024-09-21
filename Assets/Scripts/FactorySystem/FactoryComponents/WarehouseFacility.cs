@@ -7,8 +7,8 @@ public class WarehouseFacility : MonoBehaviour
 
     public bool SubstorageHasSpace(ResourceBase resource) => FindAppropriateStorage(resource)?.HasSpace() ?? false;
     public void AddToSubstorage(ResourceBase resource) => FindAppropriateStorage(resource).Add();
-    public bool SubstorageHasResource(ResourceBase resource) => FindAppropriateStorage(resource)?.HasItems() ?? false;
-    public void RemoveFromSubstorage(ResourceBase resource) => FindAppropriateStorage(resource).Retrieve();   
+    public bool SubstorageHasResources(ResourceBase resource, int amount) => FindAppropriateStorage(resource)?.HasItems(amount) ?? false;
+    public void RetrieveFromSubstorage(ResourceBase resource, int amount) => FindAppropriateStorage(resource).Retrieve(amount);   
 
     private WarehouseStorage FindAppropriateStorage(ResourceBase resource)
     {

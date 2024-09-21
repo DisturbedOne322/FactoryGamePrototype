@@ -1,26 +1,25 @@
 using UnityEngine;
 
-[RequireComponent (typeof(PlayerInventory), typeof(PlayerItemInteractionProgres))]
+[RequireComponent (typeof(PlayerInventory))]
 public class PlayerItemPickup : MonoBehaviour
 {
     [SerializeField]
     private PlayerInventory _inventory;
 
-    [SerializeField]
-    private PlayerItemInteractionProgres _itemInteractionProgress;
-
     private WarehouseStorage _cachedStorage;
 
     private float _pickupTimer = 0;
-    private void Awake()
-    {
-        _itemInteractionProgress.ToggleActive(false);
-    }
+    private float _pickupTimeNormalized = 0;
+    public float PickupTimerNormalized => _pickupTimeNormalized;
+
+    private bool _interacting = false;
+    public bool Interacting => _interacting;
+
 
     private void OnTriggerExit(Collider other)
     {
         _cachedStorage = null;
-        _itemInteractionProgress.ToggleActive(false);
+        _interacting = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,25 +33,21 @@ public class PlayerItemPickup : MonoBehaviour
         if (_cachedStorage == null)
             return;
 
-        bool interactive = true;
-
         switch (_cachedStorage.StorageType)
         {
             case WarehouseStorageType.ProductionStore:
-                interactive = TryPickUpItem();
+                _interacting = TryPickUpItem();
                 break;
             default:
-                interactive = TryPutItem();
+                _interacting = TryPutItem();
                 break;
         }
 
-        _itemInteractionProgress.ToggleActive(interactive);
-
-        if (!interactive)
+        if (!_interacting)
             return;
 
         _pickupTimer += Time.deltaTime;
-        _itemInteractionProgress.UpdateProgress(_pickupTimer / _cachedStorage.StoredResourceType.TimeToPick);
+        _pickupTimeNormalized = _pickupTimer / _cachedStorage.StoredResourceType.TimeToPick;
     }
 
     private bool TryPickUpItem()
@@ -65,7 +60,7 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (_pickupTimer > _cachedStorage.StoredResourceType.TimeToPick)
         {
-            _cachedStorage.Retrieve();
+            _cachedStorage.Retrieve(1);
             _pickupTimer = 0;
             _inventory.AddItem(_cachedStorage.StoredResourceType);
         }

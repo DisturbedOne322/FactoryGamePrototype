@@ -10,20 +10,22 @@ public class WarehouseStorage : MonoBehaviour
 
     [SerializeField, Min(1)]
     private int _storeCapacity = 10;
+    public int StoreCapacity => _storeCapacity;
     private int _amountStored = 0;
+    public int AmountStored => _amountStored;
 
     [SerializeField]
     private ResourceBase _resourceToStore;
     public ResourceBase StoredResourceType => _resourceToStore;
 
     [SerializeField]
-    private WarehouseStorageDisplayArea _resourcesDisplay;
+    private WarehouseStoragePlacementArea _resourcesDisplay;
 
     private Stack<GameObject> _storedGOsStack = new();
 
     public bool IsEmpty() => _amountStored == 0;
     public bool HasSpace() => _amountStored < _storeCapacity;
-    public bool HasItems() => _amountStored > 0;
+    public bool HasItems(int amount) => _amountStored >= amount;
 
     private void Awake()
     {
@@ -38,19 +40,22 @@ public class WarehouseStorage : MonoBehaviour
         _amountStored++;
     }
 
-    public void Retrieve()
+    public void Retrieve(int amount)
     {
-        if (_storedGOsStack.Count == 0)
+        if (_storedGOsStack.Count - amount < 0)
             return;
 
-        _amountStored--;
-        RetrieveResourceBox(_resourceToStore);
+        _amountStored -= amount;
+        RetrieveResourceBox(_resourceToStore, amount);
     }
 
-    private void RetrieveResourceBox(ResourceBase resource)
+    private void RetrieveResourceBox(ResourceBase resource, int amount)
     {
-        GameObject result = _storedGOsStack.Pop();
-        ResourceFactorySingleton.Instance.ReleaseResourceGO(resource, result);
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject result = _storedGOsStack.Pop();
+            ResourceFactorySingleton.Instance.ReleaseResourceGO(resource, result);
+        }
     }
 }
 
@@ -61,7 +66,7 @@ public enum WarehouseStorageType
 }
 
 [Serializable]
-public class WarehouseStorageDisplayArea
+public class WarehouseStoragePlacementArea
 {
     [Min(1)]
     public int Rows = 5;

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: YellowResource
   m_EditorClassIdentifier: 
   RequiredResourceMaterials:
-  - {fileID: 11400000, guid: 845d34e0fdc36564fb9885c92bef07bf, type: 2}
+  - Resource: {fileID: 11400000, guid: 845d34e0fdc36564fb9885c92bef07bf, type: 2}
+    Amount: 2
   _resourceColor: {r: 0.8291604, g: 1, b: 0.015686274, a: 1}
   _timeToProduce: 3
   _timeToPick: 0.5

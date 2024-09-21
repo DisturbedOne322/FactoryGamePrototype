@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInventory))]
 public class PlayerInventoryDisplay : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerInventory _inventory;
+
     [SerializeField]
     private Transform _inventoryParent;
 
@@ -11,7 +15,23 @@ public class PlayerInventoryDisplay : MonoBehaviour
 
     private Dictionary<ResourceBase, InventoryItemDisplay> _resourceItemDict = new();
 
-    public void AddItem(ResourceBase resource, int count)
+    private void Awake()
+    {
+        _inventory.OnPickedUp += _inventory_OnPickedUp;
+        _inventory.OnPutDown += _inventory_OnPutDown;
+    }
+
+    private void OnDestroy()
+    {
+        _inventory.OnPickedUp += _inventory_OnPickedUp;
+        _inventory.OnPutDown += _inventory_OnPutDown;
+    }
+
+    private void _inventory_OnPickedUp(ResourceBase resource, int count) => AddItem(resource, count);
+    private void _inventory_OnPutDown(ResourceBase resource, int count) => RemoveItem(resource, count);
+
+
+    private void AddItem(ResourceBase resource, int count)
     {
         if(!_resourceItemDict.ContainsKey(resource))
         {
@@ -25,7 +45,7 @@ public class PlayerInventoryDisplay : MonoBehaviour
         }
     }
 
-    public void RemoveItem(ResourceBase resource, int count)
+    private void RemoveItem(ResourceBase resource, int count)
     {
         if (count == 0)
         {

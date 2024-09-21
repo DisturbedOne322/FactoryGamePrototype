@@ -1,11 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerItemInteractionProgres), typeof(PlayerInventoryDisplay))]
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerInventoryDisplay _playerInventoryDisplay;
+    public event Action<ResourceBase, int> OnPickedUp;
+    public event Action<ResourceBase, int> OnPutDown;
 
     [SerializeField, Min(1)]
     private int _maxCapacity = 5;
@@ -25,12 +25,12 @@ public class PlayerInventory : MonoBehaviour
     public void AddItem(ResourceBase resource)
     {
         _storedResourcesAmountDict[resource]++;
-        _playerInventoryDisplay.AddItem(resource, _storedResourcesAmountDict[resource]);
+        OnPickedUp?.Invoke(resource, _storedResourcesAmountDict[resource]);
     }
 
     public void RemoveItem(ResourceBase resource)
     {
          _storedResourcesAmountDict[resource]--;
-        _playerInventoryDisplay.RemoveItem(resource, _storedResourcesAmountDict[resource]);
+        OnPutDown?.Invoke(resource, _storedResourcesAmountDict[resource]);
     }
 }
