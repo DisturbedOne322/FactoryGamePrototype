@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1943720173}
   - component: {fileID: 1943720175}
   - component: {fileID: 1943720174}
+  - component: {fileID: 1943720181}
+  - component: {fileID: 1943720180}
   m_Layer: 0
   m_Name: ResourceWarehouseYellow
   m_TagString: Untagged
@@ -83,6 +85,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1943720181
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943720172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 35, z: 1.3}
+  m_Center: {x: 0, y: 14.64, z: 0}
+--- !u!114 &1943720180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943720172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e699f3311a20964bacdd99f6ed06b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _storageType: 0
+  _storeCapacity: 10
+  _resourceToStore: {fileID: 11400000, guid: ec3ec12633082a34aaa66900a4eede9a, type: 2}
+  _resourcesDisplay:
+    Rows: 5
+    Columns: 5
+    CellSize: 1
+    CenterPosition: {fileID: 1943720173}
 --- !u!1001 &1011742260179961438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,9 +125,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 330299550, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+      propertyPath: m_Name
+      value: ProduceWarehouseRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 330299555, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+      propertyPath: _resourceToStore
+      value: 
+      objectReference: {fileID: 11400000, guid: 96f9d98df49945343aad8322da8ed51a, type: 2}
     - target: {fileID: 1750620616, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
       propertyPath: m_Name
       value: ResourceWarehouseGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479618277953861183, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6850579822685376511, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
       propertyPath: _warehouseStorages.Array.data[0]._resourceToStore
@@ -102,6 +149,10 @@ PrefabInstance:
       propertyPath: _warehouseStorages.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6850579823201890689, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+      propertyPath: _warehouseStorages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1011742259955888461}
     - target: {fileID: 6850579823201890689, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
       propertyPath: _warehouseStorages.Array.data[0]._storeCapacity
       value: 30
@@ -208,6 +259,17 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ddc50b2f14a26a944b729ed53ebb871b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+--- !u!114 &1011742259955888461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1051522835, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+  m_PrefabInstance: {fileID: 1011742260179961438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e699f3311a20964bacdd99f6ed06b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1011742260848451479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1750620617, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
