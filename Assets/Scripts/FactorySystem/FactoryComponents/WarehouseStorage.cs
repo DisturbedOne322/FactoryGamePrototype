@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class WarehouseStorage : MonoBehaviour
 {
+    public event Action<int,int> OnItemCountChanged;
+
+
     [SerializeField]
     private WarehouseStorageType _storageType;
     public WarehouseStorageType StorageType => _storageType;
 
     [SerializeField, Min(1)]
     private int _storeCapacity = 10;
-    public int StoreCapacity => _storeCapacity;
     private int _amountStored = 0;
-    public int AmountStored => _amountStored;
 
     [SerializeField]
     private ResourceBase _resourceToStore;
@@ -32,21 +33,32 @@ public class WarehouseStorage : MonoBehaviour
         GetComponent<MeshRenderer>().material.color = _resourceToStore.ResourceColor;
     }
 
+    private void Start()
+    {
+        ChangeAmountStored(0);
+    }
+
     public void Add()
     {
         GameObject go = ResourceFactorySingleton.Instance.GetResourceGO(_resourceToStore);
         _storedGOsStack.Push(go);
         _resourcesDisplay.PlaceResourceBox(_amountStored, go);
-        _amountStored++;
+        ChangeAmountStored(+1);
     }
 
     public void Retrieve(int amount)
     {
-        if (_storedGOsStack.Count - amount < 0)
+        if (_amountStored - amount < 0)
             return;
 
-        _amountStored -= amount;
+        ChangeAmountStored(-amount);
         RetrieveResourceBox(_resourceToStore, amount);
+    }
+
+    private void ChangeAmountStored(int  amount)
+    {
+        _amountStored += amount;
+        OnItemCountChanged?.Invoke(_amountStored, _storeCapacity);
     }
 
     private void RetrieveResourceBox(ResourceBase resource, int amount)

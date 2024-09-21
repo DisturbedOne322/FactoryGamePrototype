@@ -9,16 +9,18 @@ public class WarehouseStorageDataDisplay : MonoBehaviour
     [SerializeField]
     private Text _dataText;
 
-    private void DisplayData()
+    private void Awake()
     {
-        switch (_storage.StorageType)
-        {
-            case WarehouseStorageType.ResourceStore:
-                _dataText.text = _storage.AmountStored + " / " + _storage.StoreCapacity;
-                break;
-            default:
-                _dataText.text = _storage.AmountStored + " / " + _storage.StoreCapacity;
-                break;
-        }
+        _storage.OnItemCountChanged += _storage_OnItemCountChanged;
+    }
+
+    private void OnDestroy()
+    {
+        _storage.OnItemCountChanged -= _storage_OnItemCountChanged;
+    }
+
+    private void _storage_OnItemCountChanged(int count, int capacity)
+    {
+        _dataText.text = count + " / " + capacity;
     }
 }
