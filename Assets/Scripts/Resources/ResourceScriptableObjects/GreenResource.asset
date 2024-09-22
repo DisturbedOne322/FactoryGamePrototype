@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a50286180dba94ead18561dca94446, type: 3}
+  m_Script: {fileID: 11500000, guid: ebba1eb82726fca409eb0eb178748407, type: 3}
   m_Name: GreenResource
   m_EditorClassIdentifier: 
   RequiredResourceMaterials: []
-  _resourceColor: {r: 0.015686274, g: 1, b: 0.3171686, a: 1}
+  _resourceColor: {r: 0, g: 0.7169812, b: 0.18622108, a: 1}
   _timeToProduce: 0.5
-  _timeToPick: 0.33
+  _timeToPick: 1

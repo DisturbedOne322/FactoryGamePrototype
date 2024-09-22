@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ResourceBase : ScriptableObject
+[CreateAssetMenu(fileName = "Resource", menuName = "New Resource")]
+public class ResourceBase : ScriptableObject
 {
     [Header("Instances of this type cannot be assigned. \n" +
         "Multiple instances cannot be assigned.")]
@@ -30,7 +31,7 @@ public abstract class ResourceBase : ScriptableObject
     {
         for (int i = RequiredResourceMaterials.Count - 1; i >= 0; i--)
         {
-            if (RequiredResourceMaterials[i]?.Resource?.GetType() == GetType())
+            if (RequiredResourceMaterials[i]?.Resource == this)
                 RequiredResourceMaterials.RemoveAt(i);
         }
     }

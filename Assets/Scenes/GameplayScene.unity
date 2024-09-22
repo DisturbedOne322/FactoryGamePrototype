@@ -809,7 +809,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.39116263, y: 1e-45, z: 0, w: 0.9203216}
+  m_LocalRotation: {x: 0.39116263, y: 1e-45, z: -1e-45, w: 0.9203216}
   m_LocalPosition: {x: 0, y: 6.9, z: -5.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1015,7 +1015,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992499218}
-  m_LocalRotation: {x: 0.39116263, y: 1e-45, z: -0, w: 0.9203216}
+  m_LocalRotation: {x: 0.39116263, y: 1e-45, z: -1e-45, w: 0.9203216}
   m_LocalPosition: {x: 0, y: 6.9, z: -5.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2035,6 +2035,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2687667438179402341, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
+      propertyPath: _resourceToStore
+      value: 
+      objectReference: {fileID: 11400000, guid: 290dc6da59a106e4dacd82f20ce54dd9, type: 2}
     - target: {fileID: 5843499905072018802, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2079,10 +2083,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5843499905072018804, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
+      propertyPath: _producedResource
+      value: 
+      objectReference: {fileID: 11400000, guid: 290dc6da59a106e4dacd82f20ce54dd9, type: 2}
     - target: {fileID: 5843499905072018805, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
       propertyPath: m_Name
       value: Factory_Red
       objectReference: {fileID: 0}
+    - target: {fileID: 6669746463297911516, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
+      propertyPath: _resourceToStore
+      value: 
+      objectReference: {fileID: 11400000, guid: 68e19f8e2c349864f8c26c74fcb0c8eb, type: 2}
+    - target: {fileID: 6669746465091741795, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
+      propertyPath: _resourceToStore
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d37a0be6c31bac41953af8df149dfd4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bfc7525ecaa29042ace33d03edcd24f, type: 3}
 --- !u!1001 &6559871342759529583
@@ -2092,6 +2108,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1768732597}
     m_Modifications:
+    - target: {fileID: 295968974989787912, guid: d06e5949e03903445a22fa9c69356623, type: 3}
+      propertyPath: _producedResource
+      value: 
+      objectReference: {fileID: 11400000, guid: 68e19f8e2c349864f8c26c74fcb0c8eb, type: 2}
     - target: {fileID: 295968974989787913, guid: d06e5949e03903445a22fa9c69356623, type: 3}
       propertyPath: m_Name
       value: Factory_Yellow
@@ -2140,10 +2160,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6394951300634138650, guid: d06e5949e03903445a22fa9c69356623, type: 3}
+      propertyPath: _resourceToStore
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d37a0be6c31bac41953af8df149dfd4, type: 2}
     - target: {fileID: 6559871343670352659, guid: d06e5949e03903445a22fa9c69356623, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8092886382340764697, guid: d06e5949e03903445a22fa9c69356623, type: 3}
+      propertyPath: _resourceToStore
+      value: 
+      objectReference: {fileID: 11400000, guid: 68e19f8e2c349864f8c26c74fcb0c8eb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06e5949e03903445a22fa9c69356623, type: 3}
 --- !u!1001 &6850579823756447409
@@ -2161,6 +2189,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3118440866576221243, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+      propertyPath: _resourceToStore
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d37a0be6c31bac41953af8df149dfd4, type: 2}
+    - target: {fileID: 6850579823423632170, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
+      propertyPath: _producedResource
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d37a0be6c31bac41953af8df149dfd4, type: 2}
     - target: {fileID: 6850579823423632171, guid: 0eca28a0c5a24104da54015acf7a44c3, type: 3}
       propertyPath: m_Name
       value: Factory_Green
